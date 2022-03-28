@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}
+Naveen Logistics Management
+{% endblock %}
+
+{% block content %}
+<body class="text-center">
+    <div class="container">
+        <form method="POST" class="form-register" style="color:white">
+            {{ form.hidden_tag() }}
+           <h1 class="h3 mb-3 font-weight-normal">
+                Please Enter The Consignment Details
+            </h1>
+            <br>
+           
+
+            {{ form.consignment_type.label() }}
+            {{ form.consignment_type(class="form-control", placeholder="Consignment Type") }}
+
+            {{ form.receiver_name.label() }}
+            {{ form.receiver_name(class="form-control", placeholder="Receiver Name") }}
+
+            {{ form.receiver_address.label() }}
+            {{ form.receiver_address(class="form-control", placeholder="Receiver Address") }}
+
+            {{ form.receiver_mobile.label() }}
+            {{ form.receiver_mobile(class="form-control", placeholder="Reveiver Mobile") }}
+            <br>
+            <p>
+                <input type="radio" name="pickup" id="option1">Self Dropping With a Confirmation Slip<br>
+                <input type="radio" name="pickup" id="option2">Request Company pick-Up <br>
+        
+            </p>
+            
+            {{ form.submit(class_="btn btn-lg btn-block btn-primary") }}
+         
+
+        </form>
+        <div class="navl-link">
+            <a style="color:white;" href="{{ url_for('logout_page') }}">Logout</a>
+        </div>
+    </div>
+</body>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %}
+Naveen Logistics Management
+{% endblock %}
+
+{% block content %}
+      <table class="table table-hover table-dark">
+        <thead>
+            <tr>
+                <!-- Your Columns HERE -->
+                <th scope="col">Id</th>
+                <th scope="col">Consignment Type</th>
+                <th scope="col">Receiver Name</th>
+                <th scope="col">Receiver Address</th>
+                <th scope="col">Receiver Mobile</th>
+                <th scope="col">Pick Up Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Your rows inside the table HERE: -->
+   
+            {% for consignment in consignments %}
+            
+                <tr>
+                    <th>{{ consignment.id }}</th>
+                    <th>{{ consignment.consignment_type }}</th>
+                    <th>{{ consignment.receiver_name }}</th>
+                    <th>{{ consignment.receiver_address }}</th>
+                    <th>{{ consignment.receiver_mobile }}</th>
+                    <td>
+                       <!-- <button class="btn btn-sm btn-secondary" >Download</button>  -->
+                        
+                    </td>
+                </tr>  
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <div class="checkbox mb-3">
+        <h6>Want to Enter Consignment details</h6>
+        <a class="btn btn-sm btn-secondary" href="{{ url_for('consignment_page') }}">Enter Consignment</a>
+     </div>
+     <div class="checkbox mb-3">
+        <h6>Download</h6>
+        <a class="btn btn-sm btn-secondary" href="{{ url_for('pickup_page') }}">Download</a>
+     </div>
+     <div class="navl-link">
+        <a style="color: white;" href="{{ url_for('logout_page') }}">Logout</a>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,52 @@
+{% block content %}
+    <table>
+        <thead>
+            <tr>
+                <th scope="col">Name </th>
+                <th scope="col">Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Your rows inside the table HERE: -->
+   
+            {% for consignment in consignments %}            
+                <tr><td>ID</td><td>{{consignment.id}}</td></tr>  
+                <tr><td>Consignment Type</td><td>{{consignment.consignment_type}}</td></tr>  
+                <tr><td>Receiver Name</td><td>{{consignment.receiver_name}}</td></tr>  
+                <tr><td>Receiver Address</td><td>{{consignment.receiver_address}}</td></tr>  
+                <tr><td>Receiver Mobile</td><td>{{consignment.receiver_mobile}}</td></tr>  
+            {% endfor %}
+        </tbody>
+    </table>
+</td>
+    
+  
+       
+     </div>
+
+     <div >
+        <a href="{{ url_for('download_report') }}" >Download</a>
+        <a style="color: white;" href="{{ url_for('logout_page') }}">Logout</a>
+    </div>
+    <style>
+        table{
+            border: 1px solid black;
+            width: 60%;
+        }
+        tr,td,thead,th{
+            border: 1px solid black;
+            height: 30px;
+        }
+        a{
+            background-image: linear-gradient(135deg, #603813 10%, #b29f94 100%);
+            border:1px solid transparent;
+            border-top-left-radius:.25rem;
+            border-top-right-radius:.25rem;
+        }
+        button{
+            background-image: linear-gradient(135deg, #603813 10%, #b29f94 100%);
+
+        }
+    </style>
+
+{% endblock %}
